@@ -1,4 +1,4 @@
-+ 学习python的心得体会 学习方式主要通过网上一些资料已经教程
+#学习python的心得体会 学习方式主要通过网上一些资料以及教程
 + 廖雪峰的官方网站教程[Python教程] (http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000)
 
 + python 主要通过解释器来运行 所以运行速度上不比c以及c++
@@ -99,3 +99,75 @@
    	calc(nums[0], nums[1], nums[2])
 
 + python函数还有一种关键字参数 **两个星号 关键字参数只能传入dict参数类型
++ python也一样可以调用递归 使用递归函数的优点是逻辑简单清晰，缺点是过深的调用会导致栈溢出。
+
++ ##python的一些高级特性  
+  **切片**  
+> 
+	直接在数组中取值 不用循环就可以获取数组中的元素
+	L[0:3]
+	['Michael', 'Sarah', 'Tracy']
+	L[0:3]表示，从索引0开始取，直到索引3为止，但不包括索引3。即索引0，1，2，正好是3个元素。  
+	通过:经行获取  
+>	
+	前10个数，每两个取一个：
+	L[:10:2]
+	[0, 2, 4, 6, 8]
+    第2个参数隔开数   
+
+>
+	'ABCDEFG'[:3]
+	'ABC'
+	'ABCDEFG'[::2]
+	'ACEG'
+    字符串也可以看成数组经行操作
+
+  **迭代**
+
+	python的迭代一般用的是
+	for a in list
+
+----------
+但是如果是dict作为需要迭代的方法
+  
+	d = {'a': 1, 'b': 2, 'c': 3}
+	for key in d:
+	... print key
+	...
+	a
+	c
+	b
+
+----------
+默认情况下，dict迭代的是key。如果要迭代value，可以用for value in d.itervalues()如果要同时迭代key和value，可以用for k, v in d.iteritems()。
+
+----------
+当我们使用for循环时，只要作用于一个可迭代对象，for循环就可以正常运行，而我们不太关心该对象究竟是list还是其他数据类型。
+如何判断是否为可迭代
+
+	from collections import Iterable
+	isinstance('abc', Iterable) # str是否可迭代
+	True
+	isinstance([1,2,3], Iterable) # list是否可迭代
+	True
+	isinstance(123, Iterable) # 整数是否可迭代
+	False
+
+----------
+python如何在循环中获取循环下标呢? 通过enumerate函数
+
+	for i, value in enumerate(['A', 'B', 'C']):
+		   print i, value
+	...
+	0 A
+	1 B
+	2 C
+
+**列表生成器**
+
+	[x * x for x in range(1, 11)]
+	[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+可以通过[]中的内容经行列表的生成 甚至可以多重循环
+
+	[x * x for x in range(1, 11) if x % 2 == 0]
+	[4, 16, 36, 64, 100]
