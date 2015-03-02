@@ -73,15 +73,15 @@
 
 + python函数的 也可以先as3.0一样传入可变参数 用法是传入list或者tuple容器
 >
-	def calc(numbers):
-    	sum = 0
-    for n in numbers:
-        sum = sum + n * n
-    return sum
- 	calc([1, 2, 3])
-	14
- 	calc((1, 3, 5, 7))
-	84
+	def calc(numbers): 
+    	sum = 0 
+    for n in numbers:  
+        sum = sum + n * n 
+    return sum 
+ 	calc([1, 2, 3])  
+	14 
+ 	calc((1, 3, 5, 7))  
+	84 
 
 不过这样有事比较麻烦 可以直接传入数据的方法 就是在参数前加入*
 >
@@ -97,4 +97,5 @@
 	nums = [1, 2, 3]
     calc(*nums) 代替
    	calc(nums[0], nums[1], nums[2])
+
 + python函数还有一种关键字参数 **两个星号 关键字参数只能传入dict参数类型
