@@ -1,15 +1,15 @@
-学习python的心得体会 学习方式主要通过网上一些资料已经教程
-Python教程   http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000
++学习python的心得体会 学习方式主要通过网上一些资料已经教程
++[Python教程] (http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000)
 
-python 主要通过解释器来运行 所以运行速度上不比c以及c++
-python的主要用途 编写一些脚本工具 以及开发一些小的应用程序 开发web应用
-python编写工具ide和其它语言语言一样很多 目前我学习主要用sublime (eclipse+pydev)据说提示不错 其它ide(pycharm)
-python代码编写结束不能用;结尾
-python打印输出 主要用print 方法 字符串连接不用+ 而是用,
-python注释代码使用# 不用//或者/**/
-python没有显示的数据类型 但是还是有数据类型的概念在在设置变量的时候可以这样写
++python 主要通过解释器来运行 所以运行速度上不比c以及c++
++python的主要用途 编写一些脚本工具 以及开发一些小的应用程序 开发web应用
++python编写工具ide和其它语言语言一样很多 目前我学习主要用sublime (eclipse+pydev)据说提示不错 其它ide(pycharm)
++python代码编写结束不能用;结尾
++python打印输出 主要用print 方法 字符串连接不用+ 而是用,
++python注释代码使用# 不用//或者/**/
++python没有显示的数据类型 但是还是有数据类型的概念在在设置变量的时候可以这样写
 
-test = 'a' 字符
+>test = 'a' 字符
 test = 10  整形  十六进制表示方法0x前缀    
 test = 10.0 浮点
 test = true 布尔值
@@ -24,8 +24,8 @@ python 逻辑判断  and 等同于 &&
 python 没有常量类型 但是都会以大写字母表示常量 但这个变量还是可以经行赋值 约定大写字母就是常量
 python u'aaaa' Unicode码 这里有个知识点 计算机在运行的时候用的是Unicode码 但是保存成文档后会转换成utf-8
 
-\*#\*!/usr/bin/env python //这两行代码 说明在mac和linux系统里可以双击执行
-\*#\* -*- coding: utf-8 -*- //说明python类里的编码格式
+>\#!/usr/bin/env python //这两行代码 说明在mac和linux系统里可以双击执行
+>\# -*- coding: utf-8 -*- //说明python类里的编码格式
 
 print输出格式与c语言 使用占位符 %d %s 这种类型方式  '%2d-%02d' % (3, 1)  输出' 3-01'
 python 3.x 中 u'xxxx'和'xxxx' 是一样的
