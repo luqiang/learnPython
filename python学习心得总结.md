@@ -236,30 +236,30 @@ sorted()
   	关键字lambda表示匿名函数，冒号前面的x表示函数参数。
  	匿名函数有个限制，就是只能有一个表达式，不用写return，返回值就是该表达式的结果。
 >
-    map(lambda x: x * x, [1, 2, 3, 4, 5, 6, 7, 8, 9])  
-    [1, 4, 9, 16, 25, 36, 49, 64, 81]
+    map(lambda x: x * x, [1, 2, 3, 4, 5, 6, 7, 8, 9])    
+    [1, 4, 9, 16, 25, 36, 49, 64, 81]  
 
 + python装饰器
 def log(func):  
 >
-	def wrapper(*args, **kw):
-    print 'call %s():' % func.__name__
-    return func(*args, **kw)
-    return wrapper
+	def wrapper(*args, **kw):  
+    print 'call %s():' % func.__name__  
+    return func(*args, **kw)  
+    return wrapper  
 >	
-	@log
-	def now():
-    print '2013-12-25'
-	把@log放到now()函数的定义处，相当于执行了语句：
-	now = log(now)
+	@log  
+	def now():   
+    print '2013-12-25'  
+	把@log放到now()函数的定义处，相当于执行了语句：  
+	now = log(now)  
 
 + 偏函数
  
 	简单总结functools.partial的作用就是，把一个函数的某些参数给固定住（也就是设置默认值），返回一个新的函数，调用这个新函数会更简单。
 >
-	import functools
-	int2 = functools.partial(int, base=2)
-	int2('1000000')
-	64
-    int2('1010101')
-	85
+	import functools  
+	int2 = functools.partial(int, base=2) 
+	int2('1000000')  
+	64  
+    int2('1010101')  
+	85  
