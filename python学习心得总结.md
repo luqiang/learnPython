@@ -171,3 +171,95 @@ python如何在循环中获取循环下标呢? 通过enumerate函数
 
 	[x * x for x in range(1, 11) if x % 2 == 0]
 	[4, 16, 36, 64, 100]
+
+**生成器**
+
+列表生成器虽然好用，但是同时如果生成很多数据可能内存不够。所以python就有生成器在 Python中，这种一边循环一边计算的机制，称为生成器（Generator）
+如何创建一个Generator 就是将列表生成器的[]改成() 然后调用next()就可以输出了。但是一般情况都是for n in Generator 这种方法
+
+还有一种生成器就是函数的方式 通过yield关键字 来实现
+
+	def fib(max):
+    n, a, b = 0, 0, 1
+    while n < max:
+        yield b
+        a, b = b, a + b
+        n = n + 1
+
++ ##高阶函数
+
+	map()  
+	map()函数接收两个参数，一个是函数，一个是序列，map将传入的函数依次作用到序列的每个元素，并把结果作为新的list返回。
+
+----------
+
+	 def f(x):
+     return x * x	
+	 map(f, [1, 2, 3, 4, 5, 6, 7, 8, 9])
+	 [1, 4, 9, 16, 25, 36, 49, 64, 81]
+
+----------
+reduce（）  
+reduce把一个函数作用在一个序列[x1, x2, x3...]上，这个函数必须接收两个参数，reduce把结果继续和序列的下一个元素做累积计算
+
+	def add(x, y):
+	     return x + y
+
+	reduce(add, [1, 3, 5, 7, 9])
+	25
+filter()
+
+filter()把传入的函数依次作用于每个元素，然后根据返回值是True还是False决定保留还是丢弃该元素。
+
+	def is_odd(n):
+    return n % 2 == 1
+
+	filter(is_odd, [1, 2, 4, 5, 6, 9, 10, 15])
+	结果: [1, 5, 9, 15]
+sorted()
+
+常规定，对于两个元素x和y，如果认为x < y，则返回-1，如果认为x == y，则返回0，如果认为x > y，则返回1，这样，排序算法就不用关心具体的比较过程，而是根据比较结果直接排序。
+
+	def reversed_cmp(x, y):
+    if x > y:
+        return -1
+    if x < y:
+        return 1
+    return 0
+
+----------
+	 sorted([36, 5, 12, 9, 21], reversed_cmp)
+	[36, 21, 12, 9, 5]
+
++ python函数可以作为返回值 作闭包函数  
+  	匿名函数  
+  	关键字lambda表示匿名函数，冒号前面的x表示函数参数。
+ 	匿名函数有个限制，就是只能有一个表达式，不用写return，返回值就是该表达式的结果。
+>
+    map(lambda x: x * x, [1, 2, 3, 4, 5, 6, 7, 8, 9])  
+    [1, 4, 9, 16, 25, 36, 49, 64, 81]
+
++ python装饰器
+def log(func):  
+>
+	def wrapper(*args, **kw):
+    print 'call %s():' % func.__name__
+    return func(*args, **kw)
+    return wrapper
+>	
+	@log
+	def now():
+    print '2013-12-25'
+	把@log放到now()函数的定义处，相当于执行了语句：
+	now = log(now)
+
++ 偏函数
+ 
+	简单总结functools.partial的作用就是，把一个函数的某些参数给固定住（也就是设置默认值），返回一个新的函数，调用这个新函数会更简单。
+>
+	import functools
+	int2 = functools.partial(int, base=2)
+	int2('1000000')
+	64
+    int2('1010101')
+	85
