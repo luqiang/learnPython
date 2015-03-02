@@ -24,8 +24,8 @@ python 逻辑判断  and 等同于 &&
 python 没有常量类型 但是都会以大写字母表示常量 但这个变量还是可以经行赋值 约定大写字母就是常量
 python u'aaaa' Unicode码 这里有个知识点 计算机在运行的时候用的是Unicode码 但是保存成文档后会转换成utf-8
 
-#!/usr/bin/env python //这两行代码 说明在mac和linux系统里可以双击执行
-# -*- coding: utf-8 -*- //说明python类里的编码格式
+\*#\*!/usr/bin/env python //这两行代码 说明在mac和linux系统里可以双击执行
+\*#\* -*- coding: utf-8 -*- //说明python类里的编码格式
 
 print输出格式与c语言 使用占位符 %d %s 这种类型方式  '%2d-%02d' % (3, 1)  输出' 3-01'
 python 3.x 中 u'xxxx'和'xxxx' 是一样的
