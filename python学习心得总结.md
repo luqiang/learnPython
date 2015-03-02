@@ -9,11 +9,11 @@
 + python注释代码使用# 不用//或者/**/
 + python没有显示的数据类型 但是还是有数据类型的概念在在设置变量的时候可以这样写
 >
-    `test = 'a' ` 字符
-    `test = 10`  整形  十六进制表示方法0x前缀
-    `test = 10.0` 浮点
-    `test = true` 布尔值
-    `test = None` 以及None值python特有的值 特殊的空值
+     test = 'a' 字符  
+     test = 10  整形  十六进制表示方法0x前缀  
+     test = 10.0 浮点  
+     test = true 布尔值  
+     test = None 以及None值python特有的值 特殊的空值  
 
 + python字符串 用'' 如果像表示''可以用"" 也可用转义字符\
 + python如果多个字符需要转义 print r'\\\fsfds\f' 如此
