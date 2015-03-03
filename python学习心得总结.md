@@ -262,4 +262,115 @@ def log(func):
 	int2('1000000')  
 	64  
     int2('1010101')  
-	85  
+	85    
+   
+
+----------
+
+##模块
++ 包的概念 
+  python一个文件夹就可以是一个包 但是文件夹下边必须有
+`__init__.py`文件 文件内容可以为空 如果没有该文件python将视为普通的文件夹
++ 使用模块  
+  `import xxx` 就可以导入模块了  
+   模块中使用的别名的情况 
+
+>  
+	try:  
+     	import cStringIO as StringIO  
+	except ImportError: # 导入失败会捕获到ImportError
+		import StringIO  
+  
++ 作用域  
+  python中所有的变量其实都是public 但是我们可以使用_xx或者__xx的命名方式来约束大家是public还是private
++ 安装第三包 中有许多包的管理概念推荐看一下[zengrong](http://zengrong.net/post/2169.htm) 的说明教程比较系统
++ 特别提供了`_future__`模块，让你在旧的版本中试验新版本的一些特性。
+
+#面向对象的python
++ python的定义类方法 使用class
++  python构造函数用`__init__(self,xxxx)`必定有self  
+>
+	bart = Student('Bart Simpson', 59)  
+	bart.name  
+	'Bart Simpson'  
+	bart.score  
+	59
+
++ 类中定义函数 要定义一个方法，除了第一个参数是self外
++ 在类中定义属性 __xx就可以放置外部进行访问 再类中定义__xx其实也是可以访问的只是python解释器只是将__xx改成了`__class_xx`(`__类名__方法名`)
++  python 也有set以及get方法`set_xxx(self,arg)`以及`get_xxx(self)` `@property`的实现才能达到真正的set和get方法
++  python多态与继承 与其它语言一样 没什么好表
++  python type(xxx)展示出类的类型 isinstance(xxx,calssxx)判断实例是否是这个了类的实例 dir(xxx)获得一个对象的所有属性和方法getattr()、setattr()以及hasattr()判断获取设置类属性的方法
++ python可以动态添加属性以及方法
+>  
+	def set_age(self, age): # 定义一个函数作为实例方法  
+	    self.age = age  	
+	 from types import MethodType  
+    s.set_age = MethodType(set_age, s, Student) # 给实例绑定一个方法  
+	s.set_age(25) # 调用实例方法  
+	s.age # 测试结果  
+	25  
+	
++ python通过定义`__slots__`来限制动态绑定的属性
++ python可以实现多重继承
+>   
+	`class MyTCPServer(TCPServer, CoroutineMixin):
+    pass`
+
++ #python定制类  
+
++ 通过设置__str__()以及__repr__()输出格式
+>
+	class Student(object):  
+    	def __init__(self, name):  
+        	self.name = name  
+    	def __str__(self):  
+        	return 'Student object (name=%s)' % self.name  
+    	__repr__ = __str__
+
++  通过设置`__iter__`来实现迭代循环 只要实现`next(self)`方法  
+
+>
+	class Fib(object):  
+    	def __init__(self):  
+        	self.a, self.b = 0, 1 # 初始化两个计数器a，b
+    	def __iter__(self):  
+        	return self # 实例本身就是迭代对象，故返回自己
+    	def next(self):  
+        	self.a, self.b = self.b, self.a + self.b # 计算下一个值  
+        	if self.a > 100000: # 退出循环的条件  
+            	raise StopIteration();  
+        	return self.a # 返回下一个值  
+
++ 通过设置`__getitem__()`来实现list的取值操作
+>
+	class Fib(object):  
+		def __getitem__(self, n):  
+        	a, b = 1, 1  
+        	for x in range(n):  
+            	a, b = b, a + b  
+        	return a  
+
+`__setitem__()` `__delitem__()` 来实现dict可以作key的object
+
++ python `__getattr__()`如果类中没有设置的属性和函数 就可以查找这个方法来获取属性和函数
+>
+	class Student(object):
+    	def __init__(self):
+        	self.name = 'Michael'
+    	def __getattr__(self, attr):
+        	if attr=='score':
+        	    return 99
+
++ python`__call__()`用于调用类实例的方法instance()
+>
+	class Student(object):
+    	def __init__(self, name):
+        	self.name = name
+    	def __call__(self):
+        	print('My name is %s.' % self.name)
+	 s = Student('Michael')
+	 s()
+	 My name is Michael.
+
++ python通过callable()函数，我们就可以判断一个对象是否是“可调用”对象
