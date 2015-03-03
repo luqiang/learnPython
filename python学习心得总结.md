@@ -355,22 +355,22 @@ def log(func):
 
 + python `__getattr__()`如果类中没有设置的属性和函数 就可以查找这个方法来获取属性和函数
 >
-	class Student(object):
-    	def __init__(self):
-        	self.name = 'Michael'
-    	def __getattr__(self, attr):
-        	if attr=='score':
-        	    return 99
+	class Student(object):  
+    	def __init__(self):  
+        	self.name = 'Michael'  
+    	def __getattr__(self, attr):  
+        	if attr=='score':  
+        	    return 99  
 
 + python`__call__()`用于调用类实例的方法instance()
 >
-	class Student(object):
-    	def __init__(self, name):
-        	self.name = name
-    	def __call__(self):
-        	print('My name is %s.' % self.name)
-	 s = Student('Michael')
-	 s()
-	 My name is Michael.
+	class Student(object):  
+    	def __init__(self, name):  
+        	self.name = name  
+    	def __call__(self):  
+        	print('My name is %s.' % self.name)  
+	 s = Student('Michael')  
+	 s()  
+	 My name is Michael.  
 
 + python通过callable()函数，我们就可以判断一个对象是否是“可调用”对象
