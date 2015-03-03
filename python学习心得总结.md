@@ -374,3 +374,27 @@ def log(func):
 	 My name is Michael.  
 
 + python通过callable()函数，我们就可以判断一个对象是否是“可调用”对象
+
++ python使用元类没有看懂。。。。
++ python的异常处理
+> 	
+	try:  
+    	print 'try...'  
+    	r = 10 / 0  
+    	print 'result:', r  
+	except ZeroDivisionError, e:  
+    	print 'except:', e  
+	finally:  
+    	print 'finally...'  
+	print 'END'  
+ 
+抛出错误raise ValueError('input error!')
+
++ python 凡是用print来辅助查看的地方，都可以用断言（assert）来替代
+
++ python 常用的web框架  
+ 	[Django](https://www.djangoproject.com/)  
+    [web.py](http://webpy.org/)  
+	[Bottle](http://bottlepy.org/docs/dev/index.html)  
+	[Tornado](http://www.tornadoweb.org/en/stable/)	
+	
