@@ -396,6 +396,6 @@ def log(func):
  	[Django](https://www.djangoproject.com/)  
     [web.py](http://webpy.org/)  
 	[Bottle](http://bottlepy.org/docs/dev/index.html)  
-	[Tornado](http://www.tornadoweb.org/en/stable/)	
+	[Tornado](http://www.tornadoweb.org/en/stable/)	  
 	[flask](https://dormousehole.readthedocs.io/en/latest/)
 	
